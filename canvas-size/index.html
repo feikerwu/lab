@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <button id="btn">获取canvas一像素大小</button>
+</body>
+
+<script>
+  const canvas = document.getElementById('canvas')
+  const ctx = canvas.getContext('2d')
+  ctx.fillStyle = "rgba(2, 2, 2, 0.5)"
+  ctx.fillRect(0, 0, 100, 100)
+
+  const btn = document.getElementById('btn')
+  btn.addEventListener('click', () => {
+    let imageData = ctx.getImageData(0, 0, 1, 1)
+    console.log('一像素区域数据: ')
+    console.log(imageData)
+  })
+</script>
+
+</html>
